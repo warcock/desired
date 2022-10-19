@@ -26,7 +26,7 @@ client = Client()
 
 botusername = "desired"
 prefix = "!"
-status1 = "testing"
+status1 = "<3"
 status2 = "warc"
 version = "v2.0.3"
 vipserverlink = "invalid"
