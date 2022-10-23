@@ -255,7 +255,7 @@ async def csub(ctx):
 # - whitelist/unwhitelist
 
 
-@commands.has_role(905733021817249812)
+@commands.has_role(905786542486863883)
 @bot.command()
 async def wl(ctx, content, member: discord.Member):
 
@@ -325,7 +325,7 @@ async def wl(ctx, content, member: discord.Member):
             await ctx.message.delete()  
 
 
-@commands.has_role(905733021817249812)
+@commands.has_role(905786542486863883)
 @bot.command()
 async def unwl(ctx, member: discord.Member):
 
@@ -735,7 +735,7 @@ async def pendannc(ctx, content):
         embed.add_field(name="**pend**", value=f"{ctx.author.name} has dropped {content}, ping them inside your ticket to claim your order")
         embed.set_footer(text=f"{botusername} is currently at {version}")
         await ctx.message.delete()
-        await bot.get_channel(905791426045046794).send("<@&905744463874379777>", embed=embed)
+        await bot.get_channel(905791426045046794).send("<@&906822729456570388>", embed=embed)
 
 
 @commands.has_role(917021208803938314)
@@ -743,7 +743,7 @@ async def pendannc(ctx, content):
 @bot.command()
 async def pendchat(ctx, content):
         await ctx.message.delete()
-        await ctx.send(f"<@&905744463874379777> {ctx.author.name} has dropped {content}, ping them inside your ticket to claim your order")
+        await ctx.send(f"<@&906822729456570388> {ctx.author.name} has dropped {content}, ping them inside your ticket to claim your order")
 
 
 # - run
