@@ -11,9 +11,9 @@ tree = app_commands.CommandTree(bot)
 # -----------------------------------------------
 
 class desiredRewrite:
-    desiredRewriteV1_ServerID = 883531567551615026
+    desiredRewriteV1_ServerID = 905732450150391838
     desiredRewriteV1_RoleRequiredID = 1061629027636490281
-    desiredRewriteV1_BotToken = "OTY1OTg3MTUyMjcxOTI1MjQ5.Gyut0v.0_poNyYiRNQbi4dSctTCIum3d8v-XK1gCOyYZ8"
+    desiredRewriteV1_BotToken = "MTAxOTI0MzAzODM3NzI2NzI3MQ.GW8VfA.YBqNLpEmMl1v4nS-z3av5YQKwdw0EPpwqbDtdI"
     desiredRewriteV1_Color_Purple = '\033[95m'
     desiredRewriteV1_Color_Cyan = '\033[96m'
     desiredRewriteV1_Color_DarkCyan = '\033[36m'
@@ -24,6 +24,8 @@ class desiredRewrite:
     desiredRewriteV1_Text_BoldFont = '\033[1m'
     desiredRewriteV1_Text_UnderlineText = '\033[4m'
     desiredRewriteV1_Text_Color_End = '\033[0m'
+
+# -----------------------------------------------
 
 # -----------------------------------------------
 
@@ -71,14 +73,14 @@ async def pdadd(interaction: discord.Interaction, member: discord.Member, amount
     if bot.role not in interaction.user.roles:
         await interaction.response.send_message("**`failed`** `//` **`you do not have permission to run this command!`**")
     else:
-        desiredRewriteGetRole = get(member.guild.roles, id=1051069786085396520)
+        desiredRewriteGetRole = get(member.guild.roles, id=906822729456570388)
         await member.add_roles(desiredRewriteGetRole) 
         embed = discord.Embed(color=0x2F3136)
         embed.set_author(name=interaction.user, icon_url=interaction.user.avatar)
         embed.add_field(name="**pending list add [success]**", value=f"{member} has been added to the pending list! [{amount}m pending]")
         embed.set_thumbnail(url='https://cdn.discordapp.com/icons/905732450150391838/1901bc8d8847cdc3de69476e35d30310.png?size=4096')
         embed.timestamp = datetime.datetime.utcnow()
-        await interaction.response.send_message(embed=embed, ephemeral=True)
+        await interaction.response.send_message(embed=embed)
         embed1 = discord.Embed(color=0x2F3136)
         embed.set_author(name=interaction.user, icon_url=interaction.user.avatar)
         embed1.add_field(name="**pending [add]**", value=f"{member} is now in pending for {amount}m!")
@@ -92,14 +94,14 @@ async def pdremove(interaction: discord.Interaction, member: discord.Member, rea
     if bot.role not in interaction.user.roles:
         await interaction.response.send_message("**`failed`** `//` **`you do not have permission to run this command!`**")
     else:
-        desiredRewriteGetRole = get(member.guild.roles, id=1051069786085396520)
+        desiredRewriteGetRole = get(member.guild.roles, id=906822729456570388)
         await member.add_roles(desiredRewriteGetRole) 
         embed = discord.Embed(color=0x2F3136)
         embed.set_author(name=interaction.user, icon_url=interaction.user.avatar)
         embed.add_field(name="**pending list remove [success]**", value=f"{member} has been removed the pending list!")
         embed.set_thumbnail(url='https://cdn.discordapp.com/icons/905732450150391838/1901bc8d8847cdc3de69476e35d30310.png?size=4096')
         embed.timestamp = datetime.datetime.utcnow()
-        await interaction.response.send_message(embed=embed, ephemeral=True)
+        await interaction.response.send_message(embed=embed)
 
 @tree.command(name = "dahood", description = "sends the amount of da hood cash you want to buy", guild=discord.Object(id=desiredRewrite.desiredRewriteV1_ServerID))
 @app_commands.describe(amount="amount of da hood cash to choose from")
@@ -233,7 +235,7 @@ async def sub(interaction: discord.Interaction, type: discord.app_commands.Choic
         embed.add_field(name="**gamepass // subscription**", value=f"https://www.roblox.com/game-pass/85614285/diamond")
         await interaction.response.send_message(embed=embed)  
 
-@tree.command(name = "pendannc", description = "sends a message into the annoucement channel for predropped cash", guild=discord.Object(id=desiredRewrite.desiredRewriteV1_ServerID))
+@tree.command(name = "pendannc", description = "sends a message into the annoucement chat for predropped cash", guild=discord.Object(id=desiredRewrite.desiredRewriteV1_ServerID))
 async def pendannc(interaction: discord.Interaction, amount: str):
     bot.role = interaction.guild.get_role(desiredRewrite.desiredRewriteV1_RoleRequiredID)
     if bot.role not in interaction.user.roles:
@@ -241,8 +243,23 @@ async def pendannc(interaction: discord.Interaction, amount: str):
     else:
         embed = discord.Embed(color=0x2F3136)
         embed.set_author(name=interaction.user, icon_url=interaction.user.avatar)
-        embed.add_field(name="**pendannc // predropped!**", value=f"{interaction.user} has dropped {amount}! ping them in your ticket to claim")
-        await interaction.response.send_message("<@&1051069786085396520>", embed=embed)  
+        embed.add_field(name="**pendannc // predropped!**", value=f"{interaction.user} has dropped {amount}m! ping them in your ticket to claim")
+        await bot.get_channel(905791426045046794).send("<@&906822729456570388>", embed=embed)
+        embed1 = discord.Embed(color=0x2F3136)
+        embed1.set_author(name=interaction.user, icon_url=interaction.user.avatar)
+        embed1.add_field(name="**pendannc // annoucement**", value=f"message successfully sent!")
+        await interaction.response.send_message(embed=embed1)
+
+@tree.command(name = "pendchat", description = "sends a message into the current chat for predropped cash", guild=discord.Object(id=desiredRewrite.desiredRewriteV1_ServerID))
+async def pendchat(interaction: discord.Interaction, amount: str):
+    bot.role = interaction.guild.get_role(desiredRewrite.desiredRewriteV1_RoleRequiredID)
+    if bot.role not in interaction.user.roles:
+        await interaction.response.send_message("**`failed`** `//` **`you do not have permission to run this command!`**")
+    else:
+        embed = discord.Embed(color=0x2F3136)
+        embed.set_author(name=interaction.user, icon_url=interaction.user.avatar)
+        embed.add_field(name="**pendannc // predropped!**", value=f"{interaction.user} has dropped {amount}m! ping them in your ticket to claim")
+        await interaction.response.send_message("<@&906822729456570388>", embed=embed)  
 
 @tree.command(name = "csub", description="checks your current subscription", guild=discord.Object(id=desiredRewrite.desiredRewriteV1_ServerID))
 async def csub(interaction: discord.Interaction):
