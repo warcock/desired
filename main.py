@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.utils import get
 
 intents = discord.Intents.default()
-bot = discord.Client(intents=intents)
+bot = discord.Client(intents=intents,status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name="desired"))
 tree = app_commands.CommandTree(bot)
 
 # -----------------------------------------------
@@ -13,7 +13,7 @@ tree = app_commands.CommandTree(bot)
 class desiredRewrite:
     desiredRewriteV1_ServerID = 883531567551615026
     desiredRewriteV1_RoleRequiredID = 1061629027636490281
-    desiredRewriteV1_BotToken = "OTE0MTE2MDI3Mjg4MjY4ODYw.GKYUY4.WUekzKcITk7-kMJQQwRaZ4VnyJ2uzvr-4QCagQ"
+    desiredRewriteV1_BotToken = "OTY1OTg3MTUyMjcxOTI1MjQ5.Gyut0v.0_poNyYiRNQbi4dSctTCIum3d8v-XK1gCOyYZ8"
     desiredRewriteV1_Color_Purple = '\033[95m'
     desiredRewriteV1_Color_Cyan = '\033[96m'
     desiredRewriteV1_Color_DarkCyan = '\033[36m'
